@@ -1,4 +1,5 @@
 import { Component, HostBinding, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mm-movie-poster',
@@ -12,6 +13,11 @@ export class MoviePosterComponent implements OnInit {
   @Input() movie: any;
   @HostBinding('class.movie-poster--active') @Input() isSelected = false;
 
+  constructor(private _router: Router) { }
+
+  ngOnInit() {
+  }
+
   clickMoviePoster(event: Event, movie, doNotPropagate?: boolean): void {
     if (doNotPropagate) {
       event.stopPropagation();
@@ -20,10 +26,6 @@ export class MoviePosterComponent implements OnInit {
   }
   clickMovieDetails(movie): void {
     this.showMovieDetails.emit(movie);
-  }
-  constructor() { }
-
-  ngOnInit() {
   }
 
 }

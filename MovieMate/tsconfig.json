@@ -9,7 +9,8 @@
     "experimentalDecorators": true,
     "target": "es5",
     "paths": {
-      "@movies/shared": ["app/shared"]
+      "@movies/shared": ["app/shared"],
+      "@movies/services": ["app/core/services"]
     },
     "typeRoots": [
       "node_modules/@types"
