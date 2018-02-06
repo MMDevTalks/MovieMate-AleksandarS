@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Observable } from 'rxjs/Observable';
 
 import { MovieService } from '@movies/services';
@@ -13,7 +15,7 @@ export class HomeComponent implements OnInit {
   selectedMovie: any;
   movieDetails: any;
 
-  constructor(private _movieService: MovieService) {}
+  constructor(private _movieService: MovieService, private _router: Router) {}
 
   ngOnInit() {
     this.getMovies();
@@ -26,8 +28,9 @@ export class HomeComponent implements OnInit {
   selectMovie(movie): void {
     this.selectedMovie = movie;
   }
+
   showMovieDetails(movie): void {
-    this.movieDetails = movie;
+    this._router.navigate([{ outlets: { 'sidebar': `details/${movie.id}` } }]);
   }
 
 }

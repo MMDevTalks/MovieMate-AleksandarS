@@ -24,6 +24,7 @@ export class MoviePosterComponent implements OnInit {
     }
     this.selectMovie.emit(movie);
   }
+
   clickMovieDetails(movie): void {
     this.showMovieDetails.emit(movie);
   }

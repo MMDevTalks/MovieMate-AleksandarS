@@ -37,7 +37,6 @@ export class AuthService {
 
   getAccountAsync() {
     return this._accountService.getAccount().map(account => {
-      console.log(account);
       this.currentAccount$.next(account);
      });
   }

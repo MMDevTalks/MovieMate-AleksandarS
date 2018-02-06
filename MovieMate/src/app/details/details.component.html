@@ -1,1 +1,20 @@
-<div>details</div>>
+<article class="details">
+    
+    <mm-icon class="details__close-button" name="close"  (click)="closeSelf()"></mm-icon>
+    <!-- <div class="details__navigation">
+  
+        <a class="details__navigation-item">Similar</a>
+        <a class="details__navigation-item">Recommended</a>
+    </div> -->
+    <div (click)="$event.stopPropagation()" *ngIf="(movie$|async) as movie; else loading "> 
+        <div class="details__title">{{movie.title}}</div>
+        <div class="details__cover" #movieCover></div>
+        <img class="details__image large" mmColorExtractor (colorsExtracted)="morphBackground($event)" crossOrigin="Anonymous" [src]="'https://image.tmdb.org/t/p//w300/'+movie.poster_path">
+        <div class="details__description">{{movie.overview}}</div>
+    </div>
+      
+    <ng-template #loading>
+        <mm-spinner class="big"></mm-spinner>
+    </ng-template>
+  </article>
+  
